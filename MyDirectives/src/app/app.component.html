@@ -1,9 +1,78 @@
+
+<h1> Structural Directives </h1>
+
+
+<h2>Custom Directives</h2>
+
+<button (click)="revelar()">Magia!!</button>
+<div *unless="fmostrar">Texto secretisimo!!</div>
+
+<hr>
+
+<!-- ..................................................................... -->
+
+<h2>ngSwitch</h2>
+
+<div [ngSwitch]="valor">
+    <p *ngSwitchCase="1">Lunes</p>
+    <p *ngSwitchCase="2">Martes</p>
+    <p *ngSwitchCase="3">Miercoles</p>
+    <p *ngSwitchCase="4">Jueves</p>
+    <p *ngSwitchCase="5">Viernes</p>
+    <p *ngSwitchDefault>Fin de semana!</p>
+</div>
+
+<p [ngSwitch]="valor">
+    <template [ngSwitchCase]="1">Lunes</template>
+    <template [ngSwitchCase]="2">Martes</template>
+    <template [ngSwitchCase]="3">Miercoles</template>
+    <template [ngSwitchCase]="4">Jueves</template>
+    <template [ngSwitchCase]="5">Viernes</template>
+    <template ngSwitchDefault>Fin de semana!</template>
+</p>
+
+<hr>
+
+<!-- ..................................................................... -->
+
+<h2>ngFor</h2>
+
+<ul>
+    <li *ngFor="let elem of elementos; let i = index">( indice: {{i}} ) calor: {{elem}}</li>
+</ul>
+
+<!-- ..................................................................... -->
+
+<hr>
+
+<h2>ngIf</h2>
+
+<button (click)="revelar()">Magia!!</button>
+<div *ngIf="fmostrar">Mensaje Secreto</div>
+
+<template [ngIf]="fmostrar">
+    <div> Mensaje Secreto 2</div>
+</template>
+
+<!-- ..................................................................... -->
+<hr><hr>
+<!-- ..................................................................... -->
+
 <h1>Attribute Directives</h1>
+
+<h2>Custom Atttribute Directive</h2>
+
+<div appHighlight>Some Text</div>
+<div appPrueba2 defaultcolor="red" highlight="green">Some Text2</div>
+<div appPrueba2>Some Text2</div>
+
+<!-- ..................................................................... -->
+<hr>
+
 <h2>ngClass / ngStyle</h2>
+
 <div [ngClass]="{border: true, background:true }"></div>
 <div [class.border]="true" [class.background]="true"></div>
 <div [ngStyle]="{'background-color':'red'}"></div>
 
-<hr>
-<h2>Custom Atttribute Directive</h2>
-<div appHighlight>Some Text</div>
+
