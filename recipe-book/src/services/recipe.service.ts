@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Ingredient } from './ingredient';
-import { Recipe } from "./recipe";
+import { Ingredient } from '../model/ingredient';
+import { Recipe } from "../model/recipe";
 
 @Injectable()
 export class RecipeService {
@@ -42,7 +42,25 @@ export class RecipeService {
   constructor() { }
 
   getRecipes(){
-    console.log("hola");
     return this.recipes;    
+  }
+
+  getRecipe(index: number){
+    return this.recipes[index];    
+  }
+
+  deleteRecipe(recipe: Recipe){
+    this.deleteRecipeById(this.recipes.indexOf(recipe));
+  }
+  deleteRecipeById(id: number){
+    this.recipes.splice(id,1);
+  }
+
+  addRecipe(item: Recipe){
+    this.recipes.push(item);
+  }
+
+  editRecipe(oldR: Recipe, newR: Recipe){
+    this.recipes[this.recipes.indexOf(oldR)]=newR;
   }
 }
